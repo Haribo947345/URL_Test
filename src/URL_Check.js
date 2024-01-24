@@ -10,6 +10,7 @@ const URLHandler = () => {
     setInputValue(e.target.value);
   };
 
+  
   const isValidUrl = (url) => {
     const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
     const urlWithoutProtocolPattern = /^[^\s/$.?#].[^\s]*$/i;
