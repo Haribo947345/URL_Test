@@ -63,8 +63,7 @@ const URLHandler = () => {
         newWindow.close();
       }, 1000);
   
-      // 1초(1000ms)씩 기다리기
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
     }
   
     setIsLoading(false);
