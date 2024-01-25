@@ -61,9 +61,9 @@ const URLHandler = () => {
       // URL이 열린 후 1초(1000ms) 뒤에 창을 닫기
       setTimeout(() => {
         newWindow.close();
-      }, 1000);
+      }, 700);
   
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 700));
     }
   
     setIsLoading(false);
