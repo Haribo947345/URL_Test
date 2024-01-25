@@ -34,7 +34,7 @@ const URLHandler = () => {
     }
 
     if (invalidUrls.length > 0) {
-      setErrorMessage('Invalid URLs: ' + invalidUrls.join(', '));
+      setErrorMessage('Error: ' + invalidUrls.join(', '));
     } else {
       setErrorMessage('');
       setUrlList((prevUrls) => [...prevUrls, ...validUrls]);
@@ -65,16 +65,16 @@ const URLHandler = () => {
     <div>
       <textarea rows="8" cols="50" value={inputValue} onChange={handleInputChange} />
       <br />
-      <button onClick={handleAddUrls}>Add URLs</button>
+      <button onClick={handleAddUrls}>네이버 검증 링크 추가하기</button>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <p>Number of URLs: {urlList.length}</p>
+      <p>추가된 네이버 검증링크는 총: {urlList.length}개 입니당.</p>
       <ul>
         {urlList.map((url, index) => (
           <li key={index}>{url}</li>
         ))}
       </ul>
       <button onClick={handleOpenUrls} disabled={isLoading}>
-        {isLoading ? 'Opening URLs...' : 'Open URLs'}
+        {isLoading ? '자동으로 열리고 닫히는중..' : '모든URL 열어보기'}
       </button>
     </div>
   );
