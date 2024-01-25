@@ -72,6 +72,9 @@ const URLHandler = () => {
 
   return (
     <div>
+    <h1>사용시 주의사항</h1>
+    <p>*URL만 복사해서 값을 넣어주세요.*</p>
+    <p style={{ color: 'red'}}>공백은 상관없지만 구분, 프로토콜, 도메인, 하이픈은 왠만하면 넣지 않도록 주의해주세요.</p>
       <textarea rows="8" cols="50" value={inputValue} onChange={handleInputChange} />
       <br />
       <button onClick={handleAddUrls}>네이버 검증 링크 추가하기</button>
