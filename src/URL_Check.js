@@ -10,7 +10,6 @@ const URLHandler = () => {
     setInputValue(e.target.value);
   };
 
-  
   const isValidUrl = (url) => {
     const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
     const urlWithoutProtocolPattern = /^[^\s/$.?#].[^\s]*$/i;
@@ -34,13 +33,23 @@ const URLHandler = () => {
     }
 
     if (invalidUrls.length > 0) {
-      setErrorMessage('Error: ' + invalidUrls.join(', '));
+      setErrorMessage('Invalid URLs: ' + invalidUrls.join(', '));
     } else {
       setErrorMessage('');
       setUrlList((prevUrls) => [...prevUrls, ...validUrls]);
     }
 
     setInputValue('');
+  };
+
+  const handleRemoveUrl = (index) => {
+    const updatedUrls = [...urlList];
+    updatedUrls.splice(index, 1);
+    setUrlList(updatedUrls);
+  };
+
+  const handleRemoveAllUrls = () => {
+    setUrlList([]);
   };
 
   const handleOpenUrls = async () => {
@@ -66,15 +75,19 @@ const URLHandler = () => {
       <textarea rows="8" cols="50" value={inputValue} onChange={handleInputChange} />
       <br />
       <button onClick={handleAddUrls}>네이버 검증 링크 추가하기</button>
+      <button onClick={handleRemoveAllUrls}>검증 링크 모두 삭제하기</button>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <p>추가된 네이버 검증링크는 총: {urlList.length}개 입니당.</p>
       <ul>
         {urlList.map((url, index) => (
-          <li key={index}>{url}</li>
+          <li key={index}>
+            {url}
+            <button onClick={() => handleRemoveUrl(index)}>삭제</button>
+          </li>
         ))}
       </ul>
       <button onClick={handleOpenUrls} disabled={isLoading}>
-        {isLoading ? '자동으로 열리고 닫히는중..' : '모든URL 열어보기'}
+      {isLoading ? '자동으로 열리고 닫히는중..' : '모든URL 열어보기'}
       </button>
     </div>
   );
