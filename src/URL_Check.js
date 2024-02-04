@@ -57,13 +57,11 @@ const URLHandler = () => {
   
     for (const url of urlList) {
       const newWindow = window.open(url);
-      
-      // URL이 열린 후 1초(1000ms) 뒤에 창을 닫기
       setTimeout(() => {
         newWindow.close();
-      }, 700);
+      }, 1000);
   
-      await new Promise((resolve) => setTimeout(resolve, 700));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   
     setIsLoading(false);
@@ -78,6 +76,9 @@ const URLHandler = () => {
       <br />
       <button onClick={handleAddUrls}>네이버 검증 링크 추가하기</button>
       <button onClick={handleRemoveAllUrls}>검증 링크 모두 삭제하기</button>
+      <button onClick={handleOpenUrls} disabled={isLoading}>
+      {isLoading ? '자동으로 열리고 닫히는중..' : '모든URL 열어보기'}
+      </button>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <p>추가된 네이버 검증링크는 총: {urlList.length}개 입니당.</p>
       <ul>
@@ -88,9 +89,6 @@ const URLHandler = () => {
           </li>
         ))}
       </ul>
-      <button onClick={handleOpenUrls} disabled={isLoading}>
-      {isLoading ? '자동으로 열리고 닫히는중..' : '모든URL 열어보기'}
-      </button>
     </div>
   );
 };
