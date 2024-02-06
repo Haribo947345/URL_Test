@@ -54,9 +54,9 @@ const URLHandler = () => {
       const newWindow = window.open(url);
       setTimeout(() => {
         newWindow.close();
-      }, 1000);
+      }, 850);
   
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 850));
     }
   
     setIsLoading(false);
