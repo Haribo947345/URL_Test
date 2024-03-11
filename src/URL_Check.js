@@ -47,11 +47,11 @@ const URLHandler = () => {
     setIsUrlListOpen(false);
   };
 
-  const handleOpenUrls = async () => {
+  const handleOpenUrls = () => {
     setIsLoading(true);
   
     for (const url of urlList) {
-      const newWindow = window.open(url);
+      window.open(url);
     }
   
     setIsLoading(false);
