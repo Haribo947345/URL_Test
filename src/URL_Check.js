@@ -52,11 +52,6 @@ const URLHandler = () => {
   
     for (const url of urlList) {
       const newWindow = window.open(url);
-      setTimeout(() => {
-        newWindow.close();
-      }, 850);
-  
-      await new Promise((resolve) => setTimeout(resolve, 850));
     }
   
     setIsLoading(false);
