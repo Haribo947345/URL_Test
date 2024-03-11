@@ -62,10 +62,13 @@ const URLHandler = () => {
   return (
     <div>
       <h1>사용시 주의사항</h1>
-      <h3>혹시나 사용하다 멈춤현상이 발생되면 컨트롤+탭 키를 한번만 눌러주세요</h3>
-      <h3 style={{color: 'red'}}>*URL만 복사해서 값을 넣어주세요.*</h3>
-      <h2 style={{ color: 'red'}}>공백은 상관없지만 구분, 프로토콜, 도메인, 하이픈은 왠만하면 넣지 않도록 주의해주세요.</h2>
-      <p>마지막 패치버전 24.02.07ver 코드 최적화 및 리스트 숨김&표시 버튼 추가</p>
+      <h2 style={{color: 'red'}}>*URL만 복사해서 값을 넣어주시고, 공백은 상관 없습니다.*</h2>
+      <h3>마지막 패치버전 24.03.11ver추가된 검증 링크 모두 오픈</h3>
+      <h4>사용법</h4>
+      <p>1. 검증링크 추가는 구역당 한번씩 진행해주세요</p>
+      <p>1.1 많은 링크가 추가되면 크롬창 오픈시 부하가 걸리기 때문에...</p>
+      <p>2. 검증링크 추가 후 모든 링크가 열리면 육안으로 확인 후 모두 수동으로 닫아주세요.</p>
+      <p>문의는 몰라요 너무느리다해서 바꿨습니다.</p>
       <textarea rows="8" cols="50" value={inputValue} onChange={handleInputChange} />
       <br />
       <button onClick={handleAddUrls} style={{marginRight: 10}}>네이버 검증 링크 추가하기</button>
